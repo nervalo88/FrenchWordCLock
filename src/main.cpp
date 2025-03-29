@@ -1,5 +1,24 @@
 #include <Arduino.h>
 #include <WiFiManager.h> // https://github.com/tzapu/WiFiManager
+#include "time.h"
+
+const char* ntpServer = "pool.ntp.org"; // NTP server
+const long gmtOffset_sec = 1*3600; // GMT offset in seconds (1 hour)
+const int daylightOffset_sec = 0*3600; //3600; // Daylight offset in seconds (1 hour)
+
+void printLocalTime() {
+    struct tm timeinfo;
+    if (!getLocalTime(&timeinfo)) {
+        Serial.println("Failed to obtain time");
+        return;
+    }
+    Serial.print("Current time: ");
+    Serial.print(timeinfo.tm_hour);
+    Serial.print(":");
+    Serial.print(timeinfo.tm_min);
+    Serial.print(":");
+    Serial.println(timeinfo.tm_sec);
+}
 
 
 void setup() {
@@ -33,10 +52,17 @@ void setup() {
     else {
         //if you get here you have connected to the WiFi    
         Serial.println("connected...yeey :)");
+        Serial.print("local ip: ");
+        Serial.println(WiFi.localIP());
+        Serial.print("SSID: ");
+        Serial.println(WiFi.SSID());
+        configTime(gmtOffset_sec, daylightOffset_sec,ntpServer);       
     }
 
 }
 
 void loop() {
+  printLocalTime();
+  delay(1000); // wait for a second
     // put your main code here, to run repeatedly:   
 }
