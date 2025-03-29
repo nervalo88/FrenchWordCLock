@@ -30,14 +30,14 @@ https://fonts.google.com/specimen/VT323
 - Midi
 
 ### Minutes :
-- Une heure cinq
-- Une heure dix
-- Une heure et quart
-- Une heure vingt
-- Une heure vingt-cinq
-- Une heure et demie
-- Une heure moins vingt-cinq
-- Une heure moins vingt
-- Une heure moins le quart
-- Une heure moins dix
-- Une heure moins cinq
+- cinq
+- dix
+- et quart
+- vingt
+- vingt-cinq
+- et demie
+- moins vingt-cinq
+- moins vingt
+- moins le quart
+- moins dix
+- moins cinq

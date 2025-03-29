@@ -1,10 +1,48 @@
 #include <Arduino.h>
 #include <WiFiManager.h> // https://github.com/tzapu/WiFiManager
 #include "time.h"
+#include "hardware.h"
+#include "enums.h"
 
 const char* ntpServer = "pool.ntp.org"; // NTP server
 const long gmtOffset_sec = 1*3600; // GMT offset in seconds (1 hour)
 const int daylightOffset_sec = 0*3600; //3600; // Daylight offset in seconds (1 hour)
+
+const int minuteMargin = 2; // margin for minute word
+
+int minuteToMot(int minute) {
+  minute = (minute - minuteMargin)%60; // Adjust the minute value by the margin
+
+  if(minute<CINQ){
+    return CINQ;
+  }else if(minute<DIX){
+    return DIX;
+  }else if(minute<ET_QUART){
+    return ET_QUART; 
+  }else if(minute<VINGT){
+    return VINGT;
+  }else if(minute<VINGT_CINQ){
+    return VINGT_CINQ;
+  }else if(minute<ET_DEMI){  
+    return ET_DEMI;
+  }else if(minute<MOINS_VINGT_CINQ){
+    return MOINS_VINGT_CINQ;
+  }else if(minute<MOINS_VINGT){  
+    return MOINS_VINGT;
+  }else if(minute<MOINS_LE_QUART){
+    return MOINS_LE_QUART;  
+  }else if(minute<MOINS_DIX){
+    return MOINS_DIX; 
+  }else if(minute<MOINS_CINQ){
+    return MOINS_CINQ;  
+  }
+  return PILE;
+}
+
+
+
+
+
 
 void printLocalTime() {
     struct tm timeinfo;
@@ -22,27 +60,14 @@ void printLocalTime() {
 
 
 void setup() {
-    // WiFi.mode(WIFI_STA); // explicitly set mode, esp defaults to STA+AP
-    // it is a good practice to make sure your code sets wifi mode how you want it.
 
-    // put your setup code here, to run once:
     Serial.begin(115200);
     
-    //WiFiManager, Local intialization. Once its business is done, there is no need to keep it around
     WiFiManager wm;
 
-    // reset settings - wipe stored credentials for testing
-    // these are stored by the esp library
     // wm.resetSettings();
 
-    // Automatically connect using saved credentials,
-    // if connection fails, it starts an access point with the specified name ( "AutoConnectAP"),
-    // if empty will auto generate SSID, if password is blank it will be anonymous AP (wm.autoConnect())
-    // then goes into a blocking loop awaiting configuration and will return success result
-
     bool res;
-    // res = wm.autoConnect(); // auto generated AP name from chipid
-    // res = wm.autoConnect("AutoConnectAP"); // anonymous ap
     res = wm.autoConnect("FrenchWordClock","FrenchWordClock"); // password protected ap
 
     if(!res) {
@@ -56,7 +81,7 @@ void setup() {
         Serial.println(WiFi.localIP());
         Serial.print("SSID: ");
         Serial.println(WiFi.SSID());
-        configTime(gmtOffset_sec, daylightOffset_sec,ntpServer);       
+        configTime(gmtOffset_sec, daylightOffset_sec,ntpServer); 
     }
 
 }
