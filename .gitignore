@@ -27,6 +27,7 @@
 *.so
 *.so.*
 *.dylib
+*.lnk
 
 # Executables
 *.exe
@@ -50,3 +51,8 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Solidworks files (copyrighted)
+*.sldasm
+*.sldprt
+
