@@ -6,7 +6,7 @@
 
 const char* ntpServer = "pool.ntp.org"; // NTP server
 const long gmtOffset_sec = 1*3600; // GMT offset in seconds (1 hour)
-const int daylightOffset_sec = 0*3600; //3600; // Daylight offset in seconds (1 hour)
+const int daylightOffset_sec = 1*3600; //3600; // Daylight offset in seconds (1 hour)
 
 const int minuteMargin = 2; // margin for minute word
 

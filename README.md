@@ -1,20 +1,21 @@
 # FrenchWordCLock
 A word clock in french - using ESP32
 
+![Schéma du panneau](CAD/PanelV2.svg)
 
-# Clock text
-UNEUFDEUXSEPT
-CINQUATREHUIT
-TROISIXMINUIT
-ONZEMIDIXPLOP
-HEURESKMOINSR
-WETVINGT-CINQ
-DIXQUARTDEMIE
+#### Clock text
+UNEUFDEUXSEPT  
+CINQUATREHUIT  
+TROISIXMINUIT  
+ONZEMIDIXPLOP  
+HEURESKMOINSR  
+WETVINGT-CINQ  
+DIXQUARTDEMIE  
 
-# choosen font
+#### choosen font
 https://fonts.google.com/specimen/VT323
 
-### Hours :
+#### Hours :
 - Minuit
 - Une heure
 - Deux heures
@@ -29,7 +30,7 @@ https://fonts.google.com/specimen/VT323
 - Onze heures
 - Midi
 
-### Minutes :
+#### Minutes :
 - cinq
 - dix
 - et quart
