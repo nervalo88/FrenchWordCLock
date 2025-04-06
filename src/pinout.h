@@ -1,44 +1,33 @@
 // Pinout.h
-const int p_Uaaaa = 1; // "Un" ou "Une"
-const int p_aNaaa = 2; // "uN" ou "uNe" or "Neuf"
-const int p_aaEaa = 3; // "unE" or "nEuf"
-const int p_aaaUF = 4; // "neUF"
+// pin 1 & 3 ere needed for serial debug
 
-const int p_DEUX  = 5; // "DEUX"
-
-const int p_SEPT = 6; // "SEPT"
-
-const int p_CINbbbbbb = 7; // "CINq"
-const int p_bbbQbbbbb = 8; // "cinQ" or "Quatre"
-const int p_bbbbUATRE = 9; // "qUATRE"
-
-const int p_HUIT = 10; // "HUIT"
-
-const int p_TROIccc = 11; // "TROIs"
-const int p_ccccScc = 12; // "troiS" or "Six"
-const int p_cccccIX = 13; // "sIX"
-
-const int p_MINUIT = 14; // "MINUIT"
-
-const int p_ONZE = 15; // "ONZE"
-
-const int p_MIddd = 16; // "MIdi" 
-const int p_ddDId = 17; // "miDI" or "DIx"
-const int p_ddddX = 18; // "diX"
-
-const int p_HEUREe = 19; // "HEURE" or "HEUREs"
-const int p_eeeeeS = 20; // "heureS"
-
-const int p_MOINS  = 21; // "MOINS"
-
-const int p_ET = 22; // "ET"
-
-const int p_VINGTfffff = 23; // "VINGT" or "VINGT_cinq"
-const int p_fffffTffff = 24; //  "vingt-cinq" dash
-const int p_fffffCINQ = 25; // "vingt_CINQ" or "CINQ"
-
-const int p_DIX = 26; // "DIX"
-const int p_QUART = 27; // "QUART"
-const int p_DEMIE = 28; // "DEMIE"
+const int p_Uaaaa       = 15; // "Un" ou "Une"
+const int p_aNaaa       = 15; // "uN" ou "uNe" or "Neuf"
+const int p_aaEaa       = 15; // "unE" or "nEuf"
+const int p_aaaUF       = 15; // "neUF"
+const int p_DEUX        = 15; // "DEUX"
+const int p_SEPT        = 15; // "SEPT"
+const int p_CINbbbbbb   = 15; // "CINq"
+const int p_bbbQbbbbb   = 15; // "cinQ" or "Quatre"
+const int p_bbbbUATRE   = 15; // "qUATRE"
+const int p_HUIT        = 15; // "HUIT"
+const int p_TROIccc     = 15; // "TROIs"
+const int p_ccccScc     = 15; // "troiS" or "Six"
+const int p_cccccIX     = 15; // "sIX"
+const int p_MINUIT      = 15; // "MINUIT"
+const int p_ONZE        = 15; // "ONZE"
+const int p_MIddd       = 15; // "MIdi" 
+const int p_ddDId       = 15; // "miDI" or "DIx"
+const int p_ddddX       = 15; // "diX"
+const int p_HEUREe      = 15; // "HEURE" or "HEUREs"
+const int p_eeeeeS      = 15; // "heureS"
+const int p_MOINS       = 15; // "MOINS"
+const int p_ET          = 15; // "ET"
+const int p_VINGTfffff  = 15; // "VINGT" or "VINGT_cinq"
+const int p_fffffTffff  = 15; //  "vingt-cinq" dash
+const int p_fffffCINQ   = 15; // "vingt_CINQ" or "CINQ"
+const int p_DIX         = 15; // "DIX"
+const int p_QUART       = 15; // "QUART"
+const int p_DEMIE       = 15; // "DEMIE"
 
 

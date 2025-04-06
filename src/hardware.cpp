@@ -1,7 +1,7 @@
-#include "pinout.h"
-#include "hardware.h"
-#include "enums.h"
 #include <Arduino.h>
+#include "pinout.h"
+#include "enums.h"
+#include "hardware.h"
 
 void allPinOutput(){
     pinMode(p_Uaaaa, OUTPUT); // "Un" ou "Une"
@@ -92,6 +92,49 @@ void turnOffAll(){
     digitalWrite(p_DEMIE ,LOW );//"DEMIE"
 
 
+}
+
+void turnOnAll(){
+    digitalWrite(p_Uaaaa, HIGH); // "Un" ou "Une"
+    digitalWrite(p_aNaaa, HIGH); // "uN" ou "uNe" or "Neuf"
+    digitalWrite(p_aaEaa, HIGH); // "unE" or "nEuf"
+    digitalWrite(p_aaaUF, HIGH); // "neUF"
+    
+    digitalWrite(p_DEUX, HIGH); // "DEUX"
+    
+    digitalWrite(p_SEPT, HIGH); // "SEPT"
+    
+    digitalWrite(p_CINbbbbbb, HIGH); // "CINq"
+    digitalWrite(p_bbbQbbbbb, HIGH); // "cinQ" or "Quatre"
+    digitalWrite(p_bbbbUATRE, HIGH); // "qUATRE"
+    
+    digitalWrite(p_HUIT, HIGH); // "HUIT"
+    
+    digitalWrite(p_TROIccc, HIGH); // "TROIs"
+    digitalWrite(p_ccccScc, HIGH); // "troiS" or "Six"
+    digitalWrite(p_cccccIX, HIGH); // "sIX"
+    
+    digitalWrite(p_MINUIT, HIGH); // "MINUIT"
+    
+    digitalWrite(p_ONZE, HIGH); // "ONZE"
+    
+    digitalWrite(p_MIddd, HIGH); // "MIdi" 
+    digitalWrite(p_ddDId, HIGH); // "miDI" or "DIx"
+    digitalWrite(p_ddddX, HIGH); // "diX"
+    
+    digitalWrite(p_HEUREe, HIGH); // "HEURE" or "HEUREs"
+    digitalWrite(p_eeeeeS, HIGH); // "heureS"
+
+    digitalWrite(p_MOINS ,HIGH );//"MOINS"
+    digitalWrite(p_ET ,HIGH );//"ET"
+
+    digitalWrite(p_VINGTfffff ,HIGH );//"VINGT" or "VINGT_cinq"
+    digitalWrite(p_fffffTffff ,HIGH );//"vingt-cinq" dash
+    digitalWrite(p_fffffCINQ ,HIGH );//"vingt_CINQ" or "CINQ"
+
+    digitalWrite(p_DIX ,HIGH );//"DIX"
+    digitalWrite(p_QUART ,HIGH );//"QUART"
+    digitalWrite(p_DEMIE ,HIGH );//"DEMIE"
 }
 
 void hourToLeds(int hour){

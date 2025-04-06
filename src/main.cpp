@@ -40,22 +40,13 @@ int minuteToMot(int minute) {
 }
 
 
-
-
-
-
 void printLocalTime() {
     struct tm timeinfo;
     if (!getLocalTime(&timeinfo)) {
         Serial.println("Failed to obtain time");
         return;
     }
-    Serial.print("Current time: ");
-    Serial.print(timeinfo.tm_hour);
-    Serial.print(":");
-    Serial.print(timeinfo.tm_min);
-    Serial.print(":");
-    Serial.println(timeinfo.tm_sec);
+    Serial.printf("Current time: %02d:%02d:%02d\n", timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
 }
 
 
@@ -84,10 +75,15 @@ void setup() {
         configTime(gmtOffset_sec, daylightOffset_sec,ntpServer); 
     }
 
+    allPinOutput(); // Set all pins to output
+    turnOnAll(); // Turn on all pins
+
 }
 
 void loop() {
   printLocalTime();
+  delay(5000); // wait for a second
+  turnOffAll(); // Turn off all pins
   delay(1000); // wait for a second
-    // put your main code here, to run repeatedly:   
+  turnOnAll(); // Turn on all pins
 }
