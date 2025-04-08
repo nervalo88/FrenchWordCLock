@@ -46,7 +46,7 @@ void printLocalTime() {
         Serial.println("Failed to obtain time");
         return;
     }
-    Serial.printf("Current time: %02d:%02d:%02d\n", timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
+    Serial.printf("%d | %02d:%02d:%02d\n", millis(), timeinfo .tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
 }
 
 
@@ -75,15 +75,13 @@ void setup() {
         configTime(gmtOffset_sec, daylightOffset_sec,ntpServer); 
     }
 
-    allPinOutput(); // Set all pins to output
-    turnOnAll(); // Turn on all pins
+    setPinOutput(); // Set all pins to output
+    //turnOnAll(); // Turn on all pins
 
 }
 
 void loop() {
   printLocalTime();
-  delay(5000); // wait for a second
-  turnOffAll(); // Turn off all pins
-  delay(1000); // wait for a second
-  turnOnAll(); // Turn on all pins
+  pinScroller(); // Scroll the LEDs
+
 }

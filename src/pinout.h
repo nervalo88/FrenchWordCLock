@@ -1,33 +1,26 @@
 // Pinout.h
-// pin 1 & 3 ere needed for serial debug
+// pin 1 & 3 ere needed for serial debug - on esp32 wroom
 
-const int p_Uaaaa       = 15; // "Un" ou "Une"
-const int p_aNaaa       = 15; // "uN" ou "uNe" or "Neuf"
-const int p_aaEaa       = 15; // "unE" or "nEuf"
-const int p_aaaUF       = 15; // "neUF"
-const int p_DEUX        = 15; // "DEUX"
-const int p_SEPT        = 15; // "SEPT"
-const int p_CINbbbbbb   = 15; // "CINq"
-const int p_bbbQbbbbb   = 15; // "cinQ" or "Quatre"
-const int p_bbbbUATRE   = 15; // "qUATRE"
-const int p_HUIT        = 15; // "HUIT"
-const int p_TROIccc     = 15; // "TROIs"
-const int p_ccccScc     = 15; // "troiS" or "Six"
-const int p_cccccIX     = 15; // "sIX"
-const int p_MINUIT      = 15; // "MINUIT"
-const int p_ONZE        = 15; // "ONZE"
-const int p_MIddd       = 15; // "MIdi" 
-const int p_ddDId       = 15; // "miDI" or "DIx"
-const int p_ddddX       = 15; // "diX"
-const int p_HEUREe      = 15; // "HEURE" or "HEUREs"
-const int p_eeeeeS      = 15; // "heureS"
-const int p_MOINS       = 15; // "MOINS"
-const int p_ET          = 15; // "ET"
-const int p_VINGTfffff  = 15; // "VINGT" or "VINGT_cinq"
-const int p_fffffTffff  = 15; //  "vingt-cinq" dash
-const int p_fffffCINQ   = 15; // "vingt_CINQ" or "CINQ"
-const int p_DIX         = 15; // "DIX"
-const int p_QUART       = 15; // "QUART"
-const int p_DEMIE       = 15; // "DEMIE"
+//74HC595 shift register    
+const int shr_DATA      = 5; // Data pin for the shift register
+const int shr_CLK       = 3; // SH_CP CLK pin for the shift register
+const int shr_LATCH     = 1; // ST_CP Latch pin for the shift register
+
+
+const int p_01  = 12; // "Un" ou "Une"
+const int p_02  = 11; // "uN" ou "uNe" or "Neuf"
+const int p_03  = 16; // "unE" or "nEuf"
+const int p_04  = 18; // "neUF"
+const int p_05  = 33; // "DEUX"
+const int p_06  = 35; // "SEPT"
+const int p_07  = 37; // "CINq"
+const int p_08  = 39; // "cinQ" or "Quatre"
+const int p_09  = 40; // "qUATRE"
+const int p_10  = 38; // "HUIT"
+const int p_11  = 36; // "TROIs"
+const int p_12  = 34; // "troiS" or "Six"
+const int p_13  = 21; // "sIX"
+const int p_14  = 17; // "MINUIT"
+const int p_22  = 02; // "MINUIT"
 
 
