@@ -124,7 +124,7 @@ switch (pin){
         shr.set(8, value); 
         break;
     default:
-        Serial.println("Invalid pin number");
+        Serial.printf("%d is an Invalid pin number\n", pin);
         break;
 }
 }
@@ -155,7 +155,7 @@ void pinSteps(){
 }
 
 void turnOffAll(){
-    for (int i = 0; i <= 31; i++) {
+    for (int i = 1; i <= 31; i++) {
         writeBoardPin(i, LOW); // Set all pins to LOW (turn off all LEDs)
     }
 

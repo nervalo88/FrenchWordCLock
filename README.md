@@ -1,5 +1,6 @@
 # FrenchWordCLock
-A word clock in french - using ESP32
+A word clock in french - using ESP32  
+![VideoGIF](Video.gif)
 
 ![Schéma du panneau](CAD/PanelV2.svg)
 
