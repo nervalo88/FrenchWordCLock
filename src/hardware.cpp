@@ -131,7 +131,18 @@ switch (pin){
 
 void pinScroller(){
     turnOffAll(); // Turn off all LEDs before starting the scroller
-    for (int i = 0; i <=31; i++) {
+    for (int i = 1; i <=31; i++) {
+        writeBoardPin(i, HIGH); // Set the current LED to HIGH
+        Serial.printf("Board pin N° : %d\n",i); 
+        delay(500);
+        writeBoardPin(i, LOW); 
+        }
+    
+}
+
+void pinSteps(){
+    turnOffAll(); // Turn off all LEDs before starting the scroller
+    for (int i = 1; i <=31; i++) {
         writeBoardPin(i, HIGH); // Set the current LED to HIGH
         Serial.printf("Board pin N° : %d\n",i); 
         while (!Serial.available()) {
@@ -144,7 +155,6 @@ void pinScroller(){
 }
 
 void turnOffAll(){
-    Serial.println("turnOffAll()");
     for (int i = 0; i <= 31; i++) {
         writeBoardPin(i, LOW); // Set all pins to LOW (turn off all LEDs)
     }
@@ -159,88 +169,71 @@ void turnOnAll(){
 }
 
 void hourToLeds(int hour){
-    if (hour > MIDI) hour = hour - 12; // Convert to 12-hour format
-      
+    if (hour > MIDI) hour = hour - 12; // Convert to 12-hour format 0 is MINUIT - 12 is MIDI
+    if (hour != MINUIT){
+        writeBoardPin(pHEUREh, HIGH); 
+        if (hour != 1 ) writeBoardPin(phhhhhS, HIGH); 
+    }
+
     switch (hour) {
           case MINUIT:
-                writeBoardPin(1, HIGH); // "MINUIT"
+                writeBoardPin(pMINUIT, HIGH); // "MINUIT"
               break;
 
           case UNE:
-                writeBoardPin(1, HIGH); // "Un" ou "Une"
-                writeBoardPin(1, HIGH); // "uN" ou "uNe" or "Neuf"
-                writeBoardPin(1, HIGH); // "HEURE" or "HEUREs"
+                writeBoardPin(pUccccc, HIGH); // "Un" ou "Une"
+                writeBoardPin(pcNccc, HIGH); // "uN" ou "uNe" or "Neuf"
+                writeBoardPin(pccEcc, HIGH); // "HEURE" or "HEUREs"
               break;
 
           case DEUX:
-                writeBoardPin(1, HIGH); // "DEUX"
-                writeBoardPin(2, HIGH); // "HEURE" or "HEUREs"
-                writeBoardPin(2, HIGH); // "heureS"
+                writeBoardPin(pDEUX, HIGH); // "DEUX"
               break;
           case TROIS:
-                writeBoardPin(2, HIGH); // "TROIs"
-                writeBoardPin(2, HIGH); // "troiS" or "Six"
-                writeBoardPin(2, HIGH); // "HEURE" or "HEUREs"
-                writeBoardPin(2, HIGH); // "heureS"
+                writeBoardPin(pTROIeee, HIGH); // "TROIs"
+                writeBoardPin(peeeeSee, HIGH); // "troiS" or "Six"
               break;
           case QUATRE:
-                writeBoardPin(2, HIGH); // "cinQ" or "Quatre"
-                writeBoardPin(2, HIGH); // "qUATRE"
-                writeBoardPin(2, HIGH); // "HEURE" or "HEUREs"
-                writeBoardPin(2, HIGH); // "heureS"
+                writeBoardPin(pwwwQwwwww, HIGH); // "cinQ" or "Quatre"
+                writeBoardPin(pwwwwUATRE, HIGH); // "qUATRE"
               break;
 
           case CINQhr:
-                writeBoardPin(2, HIGH); // "CINq"
-                writeBoardPin(2, HIGH); // "HEURE" or "HEUREs"
-                writeBoardPin(2, HIGH); // "heureS"
+                writeBoardPin(pCINwwwwww, HIGH); // "CINq"
+                writeBoardPin(pwwwQwwwww, HIGH); // "CINq" or "CinQ"
               break;
 
           case SIX:
-                writeBoardPin(2, HIGH); // "troiS" or "Six"
-                writeBoardPin(2, HIGH); // "sIX"
-                writeBoardPin(2, HIGH); // "HEURE" or "HEUREs"
-                writeBoardPin(2, HIGH); // "heureS"
+                writeBoardPin(peeeeSee, HIGH); // "troiS" or "Six"
+                writeBoardPin(peeeeIX, HIGH); // "sIX"
             break;
 
           case SEPT:
-                writeBoardPin(2, HIGH); // "SEPT"
-                writeBoardPin(2, HIGH); // "HEURE" or "HEUREs"
-                writeBoardPin(2, HIGH); // "heureS"
+                writeBoardPin(pSEPT, HIGH); // "SEPT"
               break;
 
           case HUIT:
-                writeBoardPin(2, HIGH); // "HUIT"
-                writeBoardPin(2, HIGH); // "HEURE" or "HEUREs"
-                writeBoardPin(2, HIGH); // "heureS"
+                writeBoardPin(pHUIT, HIGH); // "HUIT"
               break;
 
           case NEUF:
-                writeBoardPin(2, HIGH); // "uN" ou "uNe" or "Neuf"
-                writeBoardPin(2, HIGH); // "unE" or "nEuf"
-                writeBoardPin(2, HIGH); // "neUF"
-                writeBoardPin(2, HIGH); // "HEURE" or "HEUREs"
-                writeBoardPin(2, HIGH); // "heureS"
+                writeBoardPin(pcNccc, HIGH); // "uN" ou "uNe" or "Neuf"
+                writeBoardPin(pccEcc, HIGH); // "unE" or "nEuf"
+                writeBoardPin(pcccUF, HIGH); // "neUF"
               break;
 
-          case DIX:
-                writeBoardPin(2, HIGH); // "miDI" or "DIx"
-                writeBoardPin(2, HIGH); // "diX"
-                writeBoardPin(2, HIGH); // "HEURE" or "HEUREs"
-                writeBoardPin(2, HIGH); // "heureS"
+          case DIXhr:
+                writeBoardPin(pxxDIx, HIGH); // "miDI" or "DIx"
+                writeBoardPin(pxxxxX, HIGH); // "diX"
               break;
 
           case ONZE:
-                writeBoardPin(2, HIGH); // "ONZE"
-                writeBoardPin(2, HIGH); // "HEURE" or "HEUREs"
-                writeBoardPin(2, HIGH); // "heureS"
+                writeBoardPin(pONZE, HIGH); // "ONZE"
               break;
 
           case MIDI:
-                writeBoardPin(2, HIGH); // "MIdi" 
-                writeBoardPin(2, HIGH); // "miDI" or "DIx"
-                writeBoardPin(2, HIGH); // "HEURE" or "HEUREs"
-                writeBoardPin(2, HIGH); // "heureS"
+                writeBoardPin(pMIxxx, HIGH); // "MIdi" 
+                writeBoardPin(pxxDIx, HIGH); // "miDI" or "DIx"
               break;
       }
   }
@@ -250,49 +243,49 @@ void minuteToLeds(int minute){
             case PILE:
                 break;
             case CINQ:
-                writeBoardPin(2, HIGH); // "vingt_CINQ" or "CINQ"
+                writeBoardPin(pCINQ, HIGH); // "vingt_CINQ" or "CINQ"
                 break;
             case DIX:
-                writeBoardPin(2, HIGH); // "DIX"
+                writeBoardPin(pDIX, HIGH); // "DIX"
                 break;
             case ET_QUART:
-                writeBoardPin(2, HIGH); // "ET"
-                writeBoardPin(2, HIGH); // "QUART"
+                writeBoardPin(pET, HIGH); // "ET"
+                writeBoardPin(pQUART, HIGH); // "QUART"
                 break;
             case VINGT:
-                writeBoardPin(2, HIGH); // "VINGT" or "VINGT_cinq"
+                writeBoardPin(pVINGT, HIGH); // "VINGT" or "VINGT_cinq"
                 break;
             case VINGT_CINQ:
-                writeBoardPin(2, HIGH); // "VINGT" or "VINGT_cinq"
-                writeBoardPin(2, HIGH); // "vingt-cinq" dash
-                writeBoardPin(2, HIGH); // "vingt_CINQ" or "CINQ"
+                writeBoardPin(pVINGT, HIGH); // "VINGT" or "VINGT_cinq"
+                writeBoardPin(pMINUS, HIGH); // "vingt-cinq" dash
+                writeBoardPin(pCINQ, HIGH); // "vingt_CINQ" or "CINQ"
                 break;
             case ET_DEMI:
-                writeBoardPin(2, HIGH); // "ET"
-                writeBoardPin(2, HIGH); // "DEMIE"
+                writeBoardPin(pET, HIGH); // "ET"
+                writeBoardPin(pDEMIE, HIGH); // "DEMIE"
                 break;
             case MOINS_VINGT_CINQ:
-                writeBoardPin(2, HIGH); // "MOINS"
-                writeBoardPin(2, HIGH); // "VINGT" or "VINGT_cinq"
-                writeBoardPin(2, HIGH); // "vingt-cinq" dash
-                writeBoardPin(2, HIGH); // "vingt_CINQ" or "CINQ"
+                writeBoardPin(pMOINS, HIGH); // "MOINS"
+                writeBoardPin(pVINGT, HIGH); // "VINGT" or "VINGT_cinq"
+                writeBoardPin(pMINUS, HIGH); // "vingt-cinq" dash
+                writeBoardPin(pCINQ, HIGH); // "vingt_CINQ" or "CINQ"
                 break;
             case MOINS_VINGT:
-                writeBoardPin(2, HIGH); // "MOINS"
-                writeBoardPin(2, HIGH); // "VINGT" or "VINGT_cinq"
+                writeBoardPin(pMOINS, HIGH); // "MOINS"
+                writeBoardPin(pVINGT, HIGH); // "VINGT" or "VINGT_cinq"
                 break;
 
             case MOINS_LE_QUART:
-                writeBoardPin(2, HIGH); // "MOINS"
-                writeBoardPin(2, HIGH); // "QUART"
+                writeBoardPin(pMOINS, HIGH); // "MOINS"
+                writeBoardPin(pQUART, HIGH); // "QUART"
                 break;
             case MOINS_DIX:
-                writeBoardPin(2, HIGH); // "MOINS"
-                writeBoardPin(2, HIGH); // "DIX"
+                writeBoardPin(pMOINS, HIGH); // "MOINS"
+                writeBoardPin(pDIX, HIGH); // "DIX"
                 break;
             case MOINS_CINQ:
-                writeBoardPin(2, HIGH); // "MOINS"
-                writeBoardPin(2, HIGH); // "vingt_CINQ" or "CINQ"
+                writeBoardPin(pMOINS, HIGH); // "MOINS"
+                writeBoardPin(pCINQ, HIGH); // "vingt_CINQ" or "CINQ"
                 break; 
         }
 

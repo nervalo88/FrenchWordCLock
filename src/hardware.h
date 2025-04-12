@@ -1,3 +1,4 @@
+void pinSteps();
 void setPinOutput();
 void turnOffAll();
 void turnOnAll();
@@ -5,3 +6,4 @@ void turnOnAll();
 void pinScroller();
 void hourToLeds(int hour);
 void minuteToLeds(int minute);
+
