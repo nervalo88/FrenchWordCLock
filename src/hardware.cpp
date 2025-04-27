@@ -170,72 +170,124 @@ void turnOnAll(){
 
 void hourToLeds(int hour){
     if (hour > MIDI) hour = hour - 12; // Convert to 12-hour format 0 is MINUIT - 12 is MIDI
-    if (hour != MINUIT){
-        writeBoardPin(pHEUREh, HIGH); 
-        if (hour != 1 ) writeBoardPin(phhhhhS, HIGH); 
-    }
-
     switch (hour) {
           case MINUIT:
                 writeBoardPin(pMINUIT, HIGH); // "MINUIT"
+                Serial.print("MINUIT");
               break;
 
           case UNE:
                 writeBoardPin(pUccccc, HIGH); // "Un" ou "Une"
                 writeBoardPin(pcNccc, HIGH); // "uN" ou "uNe" or "Neuf"
                 writeBoardPin(pccEcc, HIGH); // "HEURE" or "HEUREs"
+                Serial.print("UNE");
+                writeBoardPin(pHEUREh, HIGH); 
+                Serial.print(" HEURE");
               break;
 
           case DEUX:
                 writeBoardPin(pDEUX, HIGH); // "DEUX"
+                Serial.print("DEUX");
+                writeBoardPin(pHEUREh, HIGH); 
+                Serial.print(" HEURE");
+                writeBoardPin(phhhhhS, HIGH);
+                Serial.print("S");
               break;
           case TROIS:
                 writeBoardPin(pTROIeee, HIGH); // "TROIs"
                 writeBoardPin(peeeeSee, HIGH); // "troiS" or "Six"
+                Serial.print("TROIS");
+                writeBoardPin(pHEUREh, HIGH); 
+                Serial.print(" HEURE");
+                writeBoardPin(phhhhhS, HIGH);
+                Serial.print("S");
               break;
           case QUATRE:
                 writeBoardPin(pwwwQwwwww, HIGH); // "cinQ" or "Quatre"
                 writeBoardPin(pwwwwUATRE, HIGH); // "qUATRE"
+                Serial.print("QUATRE");
+                writeBoardPin(pHEUREh, HIGH); 
+                Serial.print(" HEURE");
+                writeBoardPin(phhhhhS, HIGH);
+                Serial.print("S");
               break;
 
           case CINQhr:
                 writeBoardPin(pCINwwwwww, HIGH); // "CINq"
                 writeBoardPin(pwwwQwwwww, HIGH); // "CINq" or "CinQ"
+                Serial.print("CINQhr");
+                writeBoardPin(pHEUREh, HIGH); 
+                Serial.print(" HEURE");
+                writeBoardPin(phhhhhS, HIGH);
+                Serial.print("S");
               break;
 
           case SIX:
                 writeBoardPin(peeeeSee, HIGH); // "troiS" or "Six"
                 writeBoardPin(peeeeIX, HIGH); // "sIX"
+                Serial.print("SIX");
+                writeBoardPin(pHEUREh, HIGH); 
+                Serial.print(" HEURE");
+                writeBoardPin(phhhhhS, HIGH);
+                Serial.print("S");
             break;
 
           case SEPT:
                 writeBoardPin(pSEPT, HIGH); // "SEPT"
+                Serial.print("SEPT");
+                writeBoardPin(pHEUREh, HIGH); 
+                Serial.print(" HEURE");
+                writeBoardPin(phhhhhS, HIGH);
+                Serial.print("S");
               break;
 
           case HUIT:
                 writeBoardPin(pHUIT, HIGH); // "HUIT"
+                Serial.print("HUIT");
+                writeBoardPin(pHEUREh, HIGH); 
+                Serial.print(" HEURE");
+                writeBoardPin(phhhhhS, HIGH);
+                Serial.print("S");
               break;
 
           case NEUF:
                 writeBoardPin(pcNccc, HIGH); // "uN" ou "uNe" or "Neuf"
                 writeBoardPin(pccEcc, HIGH); // "unE" or "nEuf"
                 writeBoardPin(pcccUF, HIGH); // "neUF"
+                Serial.print("NEUF");
+                writeBoardPin(pHEUREh, HIGH); 
+                Serial.print(" HEURE");
+                writeBoardPin(phhhhhS, HIGH);
+                Serial.print("S");
               break;
 
           case DIXhr:
                 writeBoardPin(pxxDIx, HIGH); // "miDI" or "DIx"
                 writeBoardPin(pxxxxX, HIGH); // "diX"
+                Serial.print("DIXhr");
+                writeBoardPin(pHEUREh, HIGH); 
+                Serial.print(" HEURE");
+                writeBoardPin(phhhhhS, HIGH);
+                Serial.print("S");
               break;
 
           case ONZE:
                 writeBoardPin(pONZE, HIGH); // "ONZE"
+                Serial.print("ONZE");
+                writeBoardPin(pHEUREh, HIGH); 
+                Serial.print(" HEURE");
+                writeBoardPin(phhhhhS, HIGH);
+                Serial.print("S");
               break;
 
           case MIDI:
                 writeBoardPin(pMIxxx, HIGH); // "MIdi" 
                 writeBoardPin(pxxDIx, HIGH); // "miDI" or "DIx"
+                Serial.print("MIDI");
               break;
       }
+      
+      Serial.print(" ");
   }
 
 void minuteToLeds(int minute){
@@ -244,49 +296,61 @@ void minuteToLeds(int minute){
                 break;
             case CINQ:
                 writeBoardPin(pCINQ, HIGH); // "vingt_CINQ" or "CINQ"
+                Serial.print("CINQ");
                 break;
             case DIX:
                 writeBoardPin(pDIX, HIGH); // "DIX"
+                Serial.print("DIX");
                 break;
             case ET_QUART:
                 writeBoardPin(pET, HIGH); // "ET"
                 writeBoardPin(pQUART, HIGH); // "QUART"
+                Serial.print("ET_QUART");
                 break;
             case VINGT:
                 writeBoardPin(pVINGT, HIGH); // "VINGT" or "VINGT_cinq"
+                Serial.print("VINGT");
                 break;
             case VINGT_CINQ:
                 writeBoardPin(pVINGT, HIGH); // "VINGT" or "VINGT_cinq"
                 writeBoardPin(pMINUS, HIGH); // "vingt-cinq" dash
                 writeBoardPin(pCINQ, HIGH); // "vingt_CINQ" or "CINQ"
+                Serial.print("VINGT_CINQ");
                 break;
             case ET_DEMI:
                 writeBoardPin(pET, HIGH); // "ET"
                 writeBoardPin(pDEMIE, HIGH); // "DEMIE"
+                Serial.print("ET_DEMI");
                 break;
             case MOINS_VINGT_CINQ:
                 writeBoardPin(pMOINS, HIGH); // "MOINS"
                 writeBoardPin(pVINGT, HIGH); // "VINGT" or "VINGT_cinq"
                 writeBoardPin(pMINUS, HIGH); // "vingt-cinq" dash
                 writeBoardPin(pCINQ, HIGH); // "vingt_CINQ" or "CINQ"
+                Serial.print("MOINS_VINGT_CINQ");
                 break;
             case MOINS_VINGT:
                 writeBoardPin(pMOINS, HIGH); // "MOINS"
                 writeBoardPin(pVINGT, HIGH); // "VINGT" or "VINGT_cinq"
+                Serial.print("MOINS_VINGT");
                 break;
 
             case MOINS_LE_QUART:
                 writeBoardPin(pMOINS, HIGH); // "MOINS"
                 writeBoardPin(pQUART, HIGH); // "QUART"
+                Serial.print("MOINS_LE_QUART");
                 break;
             case MOINS_DIX:
                 writeBoardPin(pMOINS, HIGH); // "MOINS"
                 writeBoardPin(pDIX, HIGH); // "DIX"
+                Serial.print("MOINS_DIX");
                 break;
             case MOINS_CINQ:
                 writeBoardPin(pMOINS, HIGH); // "MOINS"
                 writeBoardPin(pCINQ, HIGH); // "vingt_CINQ" or "CINQ"
+                Serial.print("MOINS_CINQ");
                 break; 
         }
+        Serial.println();
 
 }

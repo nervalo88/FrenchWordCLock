@@ -16,40 +16,28 @@ int minuteToMot(int minute) {
   minute = (minute - minuteMargin)%60; // Adjust the minute value by the margin
 
   if(minute<CINQ){
-    Serial.println(CINQ);
     return CINQ;
   }else if(minute<DIX){
-    Serial.println(DIX);
     return DIX;
   }else if(minute<ET_QUART){
-    Serial.println(ET_QUART);
     return ET_QUART; 
   }else if(minute<VINGT){
-    Serial.println(VINGT);
     return VINGT;
   }else if(minute<VINGT_CINQ){
-    Serial.println(VINGT_CINQ);
     return VINGT_CINQ;
   }else if(minute<ET_DEMI){
-    Serial.println(ET_DEMI);  
     return ET_DEMI;
   }else if(minute<MOINS_VINGT_CINQ){
-    Serial.println(MOINS_VINGT_CINQ);
     return MOINS_VINGT_CINQ;
   }else if(minute<MOINS_VINGT){
-    Serial.println(MOINS_VINGT);
     return MOINS_VINGT;
   }else if(minute<MOINS_LE_QUART){
-    Serial.println(MOINS_LE_QUART);
     return MOINS_LE_QUART;  
   }else if(minute<MOINS_DIX){
-    Serial.println(MOINS_DIX);
     return MOINS_DIX; 
   }else if(minute<MOINS_CINQ){
-    Serial.println(MOINS_CINQ);
     return MOINS_CINQ;  
   }
-  Serial.println(PILE);
   return PILE;
 }
 
@@ -111,14 +99,19 @@ void setup() {
 
 void loop() {
   #ifdef DEBUG
+    //pinScroller(); // Test the pin scroller
     getLocalTimeDEBUG();
-    delay(50);
+    delay(100);
   #else
   getLocalTime(); // Get the current time from NTP server
   delay(1000);
   #endif
   turnOffAll(); // Turn off all LEDs before 
-  hourToLeds(timeinfo.tm_hour); 
+  if (minuteToMot(timeinfo.tm_min) == PILE || minuteToMot(timeinfo.tm_min) > ET_DEMI) {
+    hourToLeds(timeinfo.tm_hour+1); 
+  }else{
+    hourToLeds(timeinfo.tm_hour); 
+  }
   minuteToLeds(minuteToMot(timeinfo.tm_min)); 
 
 }
